@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ignite"
+version = "0.1.0"
+description = "Example modular python project"
+readme = "README.md"
+requires-python = ">=3.10"
+
+
+[tool.setuptools]
+package-dir = {"" = "code"}
+
+[tool.setuptools.packages.find]
+where = ["code"]
+exclude = ["data*"]
