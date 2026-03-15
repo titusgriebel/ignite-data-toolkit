@@ -1,14 +1,14 @@
 # Generic imports
 import torch
 import matplotlib.pyplot as plt
-from simple_cocotools.utils.coco import CocoDetection
+from simple_cocotools.utils.coco import CocoDetectionDataset
 from torch.utils.data import DataLoader
 from pathlib import Path
 
 # Imports from codebase
-from src.eval_utils import plot_f1_matrix
-from src.inference_utils import transform_to_tensors, collate_fn, visualize_inference
-from src.inference import run_inference, calculate_f1_scores, get_annotations
+from pdl1_detection.src.eval_utils import plot_f1_matrix
+from pdl1_detection.src.inference_utils import transform_to_tensors, collate_fn, visualize_inference
+from pdl1_detection.src.inference import run_inference, calculate_f1_scores, get_annotations
 
 # Constants
 READERS = ["reader R1", "reader R2", "reader R3", "reader R4"]
@@ -27,7 +27,7 @@ def main():
     Path(figures_output_folder).mkdir(parents=True, exist_ok=True)
 
     # Load test set annotations
-    test_set = CocoDetection(
+    test_set = CocoDetectionDataset(
         root=img_folder, annFile=annotation_file, transforms=transform_to_tensors
     )
     batch_size = 1

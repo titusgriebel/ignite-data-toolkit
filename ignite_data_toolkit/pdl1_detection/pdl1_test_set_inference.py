@@ -1,7 +1,7 @@
 # Generic imports
 import torch
 import matplotlib.pyplot as plt
-from simple_cocotools.utils.coco import CocoDetection
+from simple_cocotools.utils.coco import CocoDetectionDataset
 from torch.utils.data import DataLoader
 from pathlib import Path
 
@@ -34,7 +34,7 @@ def main():
     Path(figures_output_folder).mkdir(parents=True, exist_ok=True)
 
     # Load test set annotations
-    test_set = CocoDetection(
+    test_set = CocoDetectionDataset(
         root=img_folder, annFile=annotation_file, transforms=transform_to_tensors
     )
     batch_size = 16
@@ -50,7 +50,7 @@ def main():
     torch.hub.set_dir("/tmp/.cache/torch")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = torch.hub.load(
-        "ultralytics/yolov5",
+        "yolov5",
         "custom",
         path=weight_path,
         trust_repo=True,

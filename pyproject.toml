@@ -11,8 +11,8 @@ requires-python = ">=3.10"
 
 
 [tool.setuptools]
-package-dir = {"" = "code"}
+package-dir = {"" = "ignite_data_toolkit"}
 
 [tool.setuptools.packages.find]
-where = ["code"]
+where = ["ignite_data_toolkit"]
 exclude = ["data*"]

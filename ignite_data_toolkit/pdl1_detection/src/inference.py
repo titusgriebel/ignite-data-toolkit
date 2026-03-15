@@ -17,7 +17,7 @@ from tqdm import tqdm
 from pathlib import Path
 
 # Imports from codebase
-from src.eval_utils import calculate_confusion_matrix, get_metrics
+from pdl1_detection.src.eval_utils import calculate_confusion_matrix, get_metrics
 from yolov5.utils.general import non_max_suppression, xyxy2xywh
 
 
